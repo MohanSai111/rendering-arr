@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Starting with react App</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+      
+    </div>
+    <script type="text/babel">
+         function Students(){
+        let students=[
+            {
+                name:"Mohan",
+                age:21,
+                marks:35
+            },
+            {
+                name:"Rohan",
+                age:22,
+                marks:40
+            },
+            {
+                name:"Sohan",
+                age:23,
+                marks:45
+            }
+        ]
+        return(
+        <>
+         <h1>Students Details</h1>
+         <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Marks</th>
+            </tr>
+            </thead>
+
+            <tbody>
+          {students.map((student,index)=>(
+            <tr key={index}>
+                <td>{student.name}</td>
+                <td>{student.age}</td>
+                <td>{student.marks}</td>
+            </tr>
+          ))}
+          </tbody>
+         </table>
+        </>
+         )
+             }
+   
+
+       function Cars(){
+        const arr=[1,2,3,4,5];
+        const obj= {
+            name:"Mohan",
+            age:21
+        }
+        const cars=["bmw","benz","Audi"];
+        return(
+        <>
+        <h1>Arrays and Objects in javascript</h1>
+        {arr.map((num)=><h2>{num}</h2>)}
+        <h1>cars</h1>
+        <ul>
+            {cars.map((car,index)=>(
+              <li key={index}>{car}</li>  
+            ))}
+        </ul>
+        <h2>{obj.name}</h2>
+        </>
+         )
+             }
+
+        function App(){
+            let loggedIn = true;
+            let name ="Alexa";
+            let lastName="";
+            return(
+                <>
+                <h1>Hello {loggedIn?lastName||name:"User"}!</h1>
+                {loggedIn && <p>Welcome to the portal</p>}
+                </>
+            )
+        }
+     ReactDOM.createRoot(document.getElementById("root")).render(<App/>)
+    </script>
+    
+</body>
+</html>
